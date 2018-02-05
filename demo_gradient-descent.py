@@ -22,14 +22,12 @@ for i in range(len(x)):
         
 b = -120
 w = -4
-lr = 1
+lr = 0.0000001
 iteration = 100000
 
 b_history = [b]
 w_history = [w]
 
-lr_b = 0
-lr_w = 0
 
 for i in range(iteration):
     
@@ -39,12 +37,9 @@ for i in range(iteration):
         b_grad = b_grad - 2.0*(y_data[n]-b-w*x_data[n])*1.0
         w_grad = w_grad - 2.0*(y_data[n]-b-w*x_data[n])*x_data[n]
     
-    lr_b = lr_b + b_grad**2
-    lr_w = lr_w + w_grad**2
-
-    
-    b = b - lr/np.sqrt(lr_b)*b_grad
-    w = w - lr/np.sqrt(lr_w)*w_grad
+   
+    b = b - lr/*b_grad
+    w = w - lr/*w_grad
     
     b_history.append(b)
     w_history.append(w)
